@@ -22,7 +22,7 @@ public class Triangle {
      * Метод проверяет можно ли построить треугольник с такими длинами сторон.
      */
     public boolean exist(double a, double c, double b) {
-        boolean result = a + b > c && a + c > b && b + c > a;
+        boolean result = ((a + b > c) && (a + c > b) && (b + c > a));
         return result;
     }
     /**
