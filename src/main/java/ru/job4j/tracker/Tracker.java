@@ -82,7 +82,7 @@ public class Tracker {
                 position++;
             }
         }
-        return Arrays.copyOf(itemWithOutNull, size);
+        return Arrays.copyOf(items, size);
     }
     /**
      * findByName - получение заявок по имени
