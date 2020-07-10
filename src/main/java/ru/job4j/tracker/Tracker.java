@@ -82,8 +82,7 @@ public class Tracker {
                 position++;
             }
         }
-        itemWithOutNull = Arrays.copyOf(itemWithOutNull, size);
-        return itemWithOutNull;
+        return Arrays.copyOf(itemWithOutNull, size);
     }
     /**
      * findByName - получение заявок по имени
@@ -93,13 +92,12 @@ public class Tracker {
     public Item[] findByName(String key){
         Item[] temp = new Item[size];
         int position = 0;
-        for (int i = 0; i < this.items.length; i++) {
-            if (this.items[i] != null && this.items[i].getName().equals(key)) {
+        for (int i = 0; i < size; i++) {
+            if (this.items[i].getName().equals(key)) {
                 temp[position] = this.items[i];
                 position++;
             }
         }
-        temp = Arrays.copyOf(temp, position);
-        return temp;
+        return Arrays.copyOf(temp, position);
     }
 }
