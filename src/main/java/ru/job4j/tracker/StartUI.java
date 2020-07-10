@@ -19,5 +19,9 @@ public class StartUI {
         for (int i = 0; i < findAllMass.length; i++) {
             System.out.println(findAllMass[i].getId() + " " + findAllMass[i].getName());
         }
+        System.out.println(System.lineSeparator() + "---Replace---");
+        Item item3 = new Item("Lena");
+        tracker.replace(1, item3);
+        System.out.println(tracker.findById(1).getId() + " " + tracker.findById(1).getName());
     }
 }

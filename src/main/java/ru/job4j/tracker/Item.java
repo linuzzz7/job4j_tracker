@@ -12,6 +12,9 @@ public class Item {
     private int id;
     private String name;
 
+    public Item() {
+    }
+
     /**
      * Конструктор принимающий имя заявки
      * @param name - имя заявки

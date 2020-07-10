@@ -26,21 +26,47 @@ public class Tracker {
         items[size++] = item;
         return item;
     }
+
+    /**
+     * indexOf - метод, который будет возвращать index по id.
+     * @param id - номер заявки
+     * @return - возвращает index найденной заявки
+     */
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                rsl = index;
+                break;
+            }
+        }
+        return rsl;
+    }
+    /**
+     * Метод замены заявки, индекс остается тот же
+     * @param id - с каким индексом заявку надо поменять
+     * @param item - заявка на которую нада заменить. Меняет только поле Name
+     * @return - true, если замена произведена или false, если index по id не найден.
+     */
+    public boolean replace(int id, Item item) {
+        boolean rsl = false;
+        int index = indexOf(id);
+        if(index != -1) {
+            this.items[index].setName(item.getName());
+            rsl = true;
+        }
+        return rsl;
+    }
     /**
      * findById - поиск заявки по id
      * @param id - номер для поиска заявки
      * @return - возврщает заявку, или null
      */
     public Item findById(int id) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
-                break;
-            }
-        }
-        return rsl;
+        /* Находим индекс */
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
     }
     /**
      * findAll - получение списка всех заявок, создаем новый массив с длиной size
