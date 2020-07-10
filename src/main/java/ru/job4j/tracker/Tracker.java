@@ -100,4 +100,24 @@ public class Tracker {
         }
         return Arrays.copyOf(temp, position);
     }
+    /**
+     * delete - метод удаления заявки.
+     * Берем исходный массив, и в него же будем копировать item.
+     * "index + 1" - индекс следующего элемента после найденного
+     * "size - index" - сколько элементов скопировать
+     * далее обнуляем последнюю ячейку, и уменьшаем показатель size
+     * @param id - с каким номером удалить заявку
+     * @return - возвращает true или false
+     */
+    public boolean delete(int id) {
+        boolean rsl = false;
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index);
+            items[size - 1] = null;
+            size--;
+            rsl = true;
+        }
+        return rsl;
+    }
 }

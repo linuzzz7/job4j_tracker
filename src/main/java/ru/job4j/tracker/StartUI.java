@@ -23,5 +23,9 @@ public class StartUI {
         Item item3 = new Item("Lena");
         tracker.replace(1, item3);
         System.out.println(tracker.findById(1).getId() + " " + tracker.findById(1).getName());
+        System.out.println(System.lineSeparator() + "---Delete---");
+        System.out.println(tracker.delete(1));
+
     }
 }
+
