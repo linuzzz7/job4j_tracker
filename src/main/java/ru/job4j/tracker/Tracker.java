@@ -70,18 +70,9 @@ public class Tracker {
     }
     /**
      * findAll - получение списка всех заявок, создаем новый массив с длиной size
-     * копируем в него все не null объекты, и обрезаем его, на указанный размер size
      * @return - возвращает массив[] всех существующих заявок
      */
     public Item[] findAll(){
-        Item[] itemWithOutNull = new Item[size];
-        int position = 0;
-        for (int i = 0; i < this.items.length; i++) {
-            if (this.items[i] != null) {
-                itemWithOutNull[position] = this.items[i];
-                position++;
-            }
-        }
         return Arrays.copyOf(items, size);
     }
     /**
