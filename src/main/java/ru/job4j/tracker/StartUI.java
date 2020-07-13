@@ -72,8 +72,12 @@ public class StartUI {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] result = tracker.findByName(name);
-                for (int i = 0; i < result.length; i++) {
-                    System.out.println(result[i].getId() + " " + result[i].getName());
+                if (result.length > 0) {
+                    for (int i = 0; i < result.length; i++) {
+                        System.out.println(result[i].getId() + " " + result[i].getName());
+                    }
+                } else {
+                    System.out.println("Заявки с таким именем не найдены");
                 }
                 System.out.println("=======================");
             } else if (select == 6) {
