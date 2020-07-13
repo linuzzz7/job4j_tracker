@@ -29,7 +29,7 @@ public class Matches {
         while (match > 0) {
             match -= input(gamer);
             if (match <= 0) {
-                System.out.println("Победил " + gamer + " игрок");
+                System.out.println(System.lineSeparator() + "Победил " + gamer + " игрок");
                 break;
             }
             if (gamer == 1) {
