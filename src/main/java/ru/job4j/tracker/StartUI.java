@@ -6,6 +6,11 @@ package ru.job4j.tracker;
  * @version 1
  */
 public class StartUI {
+    private final Output out;
+
+    public StartUI(Output out) {
+        this.out = out;
+    }
 
     /**
      * @param input   - принимает ввод с клавиатуры
@@ -26,24 +31,25 @@ public class StartUI {
      * Метод показа пунктов меню
      */
     private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
+        out.println("Menu.");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
     public static void main(String[] args) {
+        Output output = new ConsoleOutput();
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(),
-                new FindAllAction(),
-                new ReplaceActions(),
-                new DeleteActions(),
-                new FindIdActions(),
-                new FindByNameAction(),
-                new ExitActions()
+                new CreateAction(output),
+                new FindAllAction(output),
+                new ReplaceAction(output),
+                new DeleteAction(output),
+                new FindIdAction(output),
+                new FindByNameAction(output),
+                new Exit()
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
